@@ -6,28 +6,30 @@
 
 
 
-<!----
+
 
 
 
   <title>Shillong Teer Result</title>
    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-  <script>
-    async function loadSheetData() {
-      const sheetID = "2PACX-1vQiS4Br858ey1_frzcnK2EIWjzQCh7pGGfA6008XHuIt7-LmxsfPSpkTd4UbAqYEb902PCtY9kowz7cX"; // replace with your sheet ID
-      const url = `https://spreadsheets.google.com/feeds/list/${sheetID}/1/public/values?alt=json`;
-      const res = await fetch(url);
-      const data = await res.json();
-      const latest = data.feed.entry[0]; // latest row
+ <script>
+  async function loadSheetData() {
+    const sheetID = "1PpBgBdD1cdPai2tkXweu6dkCDQZGwd7dH57ZiMR_d54"; // Your sheet ID
+    const url = `https://spreadsheets.google.com/feeds/list/${sheetID}/1/public/values?alt=json`;
+    
+    const res = await fetch(url);
+    const data = await res.json();
+    const latest = data.feed.entry[0]; // Latest row
+    
+    console.log(latest); // Debugging output
+    
+    document.getElementById("date").innerText = latest.gsx$date.$t;
+    document.getElementById("first").innerText = latest.gsx$firstround.$t;
+    document.getElementById("second").innerText = latest.gsx$secondround.$t;
+  }
 
-      // Fill data into HTML
-      document.getElementById("date").innerText = latest.gsx$date.$t;
-      document.getElementById("first").innerText = latest.gsx$firstround.$t;
-      document.getElementById("second").innerText = latest.gsx$secondround.$t;
-    }
-
-    window.onload = loadSheetData;
-  </script>
+  window.onload = loadSheetData;
+</script>
 
 <body>
   
@@ -36,7 +38,7 @@
     
 
 
----->
+
 
 
 
